@@ -19,8 +19,8 @@ public:
     q.push(root);
     while(!(q.empty())){
         vector<int>level;
-        int size = q.size();
-        for(int i=0;i<size;i++){
+        int n =q.size();
+        for(int i=0;i<n;i++){
         TreeNode* temp = q.front();
         q.pop();
         if(!(temp->left==NULL)) q.push(temp->left);
