@@ -15,23 +15,18 @@ public:
 
 class Solution {
   public:
-    int height(Node* root) {
-    int count=0;
-    if(root==NULL) return count;
-    queue<Node*>q;
-    q.push(root);
-    while(!q.empty()){
-        count++;
-        int size =q.size();
-        for(int i=0;i<size;i++){
-            Node* temp =q.front();
-            q.pop();
-            if(temp->left!=NULL) q.push(temp->left);
-            if(temp->right!=NULL) q.push(temp->right);
-
-        }
-    }
-    return count-1;
+    int helper(Node* root) {
+        // code here
+        if(root==NULL) return 0;
         
+        int lh =helper(root->left);
+        int rh =helper(root->right);
+        
+        return 1+max(lh,rh);
     }
+    int height(Node* root){
+        int a =helper(root);
+        return a-1;
+    }
+    
 };
